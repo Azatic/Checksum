@@ -1,0 +1,6 @@
+[submodule "FiniteField5"]
+	path = FiniteField5
+	url = https://github.com/Azatic/FiniteField5
+[submodule "Finite_field"]
+	path = Finite_field
+	url = https://github.com/Azatic/Finite_field
