@@ -15,14 +15,7 @@ public class Polynom
         this.module = module;
         for (int i = 0; i < coeff.Length; i++)
         {
-            if (coeff[i] % module < 0)
-            {
-                coeff[i] = coeff[i] % module + module;
-            }
-            else
-            {
-                coeff[i] = coeff[i] % module;
-            }
+            coeff[i] = (coeff[i] % module + module) % module;
         }
     }
     
@@ -81,15 +74,7 @@ public class Polynom
             quotient[quotient.Length - 1 - i] = coefficient;
             for (var j = 0; j < divisor.coeff.Length; j++)
             {
-                remainder.coeff[remainder.deg - i - j] -= coefficient * divisor[divisor.deg - j];
-            }
-        }
-        for (int i = 0; i < remainder.coeff.Length; i++)
-        {
-            int modulo = remainder.module;
-            while (remainder.coeff[i] < 0)
-            {
-                remainder.coeff[i] = remainder.coeff[i] + modulo;
+                remainder.coeff[remainder.deg - i - j] = ((remainder.coeff[remainder.deg - i - j] -= coefficient * divisor[divisor.deg - j])%remainder.module + remainder.module) % remainder.module;
             }
         }
         return remainder;
