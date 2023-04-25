@@ -32,7 +32,7 @@ public class Field
             var bytik3 = BitConverter.ToInt32(bytik);
             var bytik4 = Convert.ToString(bytik3, 2);
             var pol2 = bytik4.Reverse();
-            var coeff = pol2.Select(a => a + '0').ToArray();
+            var coeff = pol2.Select(a => a - '0').ToArray();
             return new Element(this, new Polynom(coeff, p));
         }
         else

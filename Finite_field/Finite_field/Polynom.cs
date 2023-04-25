@@ -13,7 +13,14 @@ public class Polynom
         this.module = module;
         for (int i = 0; i < coeff.Length; i++)
         {
-            coeff[i] = coeff[i] % module;
+            if (coeff[i] % module < 0)
+            {
+                coeff[i] = coeff[i] % module + module;
+            }
+            else
+            {
+                coeff[i] = coeff[i] % module;
+            }
         }
     }
     

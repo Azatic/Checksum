@@ -8,8 +8,8 @@ namespace Tests2;
 
 public class Tests
 {
-    // private Controllsum _crc;
     private byte[] _message;
+    private byte[] _bigmessage;
     private byte[] _byteMessage1;
     private byte[] _byteMessage2;
 
@@ -22,6 +22,7 @@ public class Tests
     {
         _crc1 = new Controllsum(Polynom);
         _message = new byte[] { 104, 169, 157, 91 };
+        _bigmessage = new byte[] { 104, 169, 157, 91 ,35,64,23,100};
         _byteMessage1 = _message;
         _byteMessage2 = _byteMessage1.Reverse().ToArray();
     }
@@ -33,6 +34,13 @@ public class Tests
         var actualCheckSum = _crc1.GetSumm(_byteMessage1);
 
         Assert.IsTrue(actualCheckSum.SequenceEqual(expectedCheckSum));
+    }
+    [Test]
+    public void GetCertainCheckSumTest2()
+    {
+        var actualCheckSum = _crc1.GetSumm(_bigmessage);
+
+        Assert.IsTrue(actualCheckSum.SequenceEqual(new byte[] {56,153,44,137}));
     }
     [Test]
     public void EqualCheckSumTrueTest()
