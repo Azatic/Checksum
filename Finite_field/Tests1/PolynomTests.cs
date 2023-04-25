@@ -36,7 +36,7 @@ public class Tests
         var polynomial2 = new Polynom(new[] { 3, 1 }, 10);
 
         var remainder = polynomial1 % polynomial2;
-        var expectedResult = new Polynom(new[] { -7,0,0,0 }, 10);
+        var expectedResult = new Polynom(new[] { 3,0,0,0 }, 10);
 
         Assert.That(remainder.coeff, Is.EqualTo(expectedResult.coeff));
     }
