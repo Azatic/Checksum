@@ -82,6 +82,17 @@ public class Polynom
                 remainder.coeff[remainder.deg - i - j] -= coefficient * divisor[divisor.deg - j];
             }
         }
+        for (int i = 0; i < remainder.coeff.Length; i++)
+        {
+            if (remainder.coeff[i] < 0)
+            {
+                remainder.coeff[i] = remainder.coeff[i] + remainder.module;
+            }
+            else
+            {
+                remainder.coeff[i] = remainder.coeff[i];
+            }
+        }
         return remainder;
     }
     
